@@ -16,7 +16,93 @@ At the moment, it contains only a couple of basic utility functions — but more
 Returns the author's name.
 
 ```python
-from gen_x.core import made_by
+from bgral.core import made_by
 
 print(made_by())  # Output: Bhavya Gujral
+```
 
+---
+
+# 🎨 Video Style Transfer
+
+This project applies neural style transfer on videos by extracting individual frames, applying style transfer to each frame, and then reassembling the frames into a stylized video with the original audio.
+
+## 🚀 Features
+
+- Extracts frames from a video.
+- Applies style transfer on each frame using a pre-trained TensorFlow model.
+- Recompiles the stylized frames back into a video.
+- Adds original audio to the final video.
+- Supports both local (offline) and online (TensorFlow Hub) style transfer models.
+
+## 🛠 Prerequisites
+
+To run this project, you will need:
+
+- Python 3.x  
+- TensorFlow  
+- OpenCV  
+- TensorFlow Hub  
+- PIL (Python Imaging Library)  
+- ffmpeg (for adding audio back to the video)
+
+## 📦 Install Dependencies
+
+Install Python libraries:
+
+```bash
+pip install tensorflow opencv-python tensorflow-hub pillow
+```
+
+Install `ffmpeg` (Linux):
+
+```bash
+sudo apt install ffmpeg
+```
+
+## 🧪 Usage
+
+### Running the Script
+
+To apply style transfer on a video, use the `style_transfer()` function:
+
+```python
+from bgral.video_style_transfer import style_transfer
+
+style_transfer(
+    input_video="input.mp4",
+    style_image_path="style.jpg",
+    working_dir="output",
+    fps=30
+)
+```
+
+### Arguments:
+
+- `input_video (str)`: Path to the input video file.
+- `style_image_path (str)`: Path to the image to be used for style transfer.
+- `working_dir (str)`: Directory where the frames, styled frames, and final video will be saved.
+- `fps (int)`: Frames per second for the output video (default is 30).
+
+### How It Works
+
+1. **Extract Frames**: The video is broken down into individual frames.
+2. **Apply Style Transfer**: The style image is applied to each frame using a pre-trained model from TensorFlow Hub.
+3. **Recompile Video**: The stylized frames are then compiled into a new video.
+4. **Add Audio**: The original audio from the input video is added back to the final stylized video.
+
+### 🧪 Example
+
+Run the following command to execute the style transfer process on a sample video:
+
+```bash
+python check.py
+```
+
+This will read the video `test.mp4`, apply the style from `test.jpg`, and save the output to the `output/` folder.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
