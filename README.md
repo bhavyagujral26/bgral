@@ -91,6 +91,31 @@ style_transfer(
 3. **Recompile Video**: The stylized frames are then compiled into a new video.
 4. **Add Audio**: The original audio from the input video is added back to the final stylized video.
 
+# Understanding FPS Calculation Based on Video Duration
+
+In video processing, **FPS (Frames Per Second)** refers to the number of frames displayed or captured per second of video. To calculate the FPS of a video, you can use the formula:
+
+fps = len(frame_paths) / video_duration_in_seconds
+
+Where:
+- `len(frame_paths)` is the total number of frames in the video.
+- `video_duration_in_seconds` is the total duration of the video in seconds.
+
+### Example:
+Let's say the video has a total duration of 11 seconds, and there are 250 frames extracted from the video. To calculate the FPS, we use the formula:
+
+fps = 250 / 11
+
+This results in:
+
+fps ≈ 22.73
+
+So, the video has approximately **22.73 FPS**, meaning it displays about **22.73 frames per second**. This FPS determines the smoothness of the video, with a higher FPS providing smoother video playback and a lower FPS resulting in choppier motion, especially during fast scenes.
+
+### Conclusion:
+For this example, the FPS is approximately **22.73 FPS** for a video that is 11 seconds long and has 250 frames. By using this simple formula, you can calculate the FPS for any video by knowing the total number of frames and the video duration.
+
+
 ### 🧪 Example
 
 Run the following command to execute the style transfer process on a sample video:
